@@ -160,6 +160,21 @@
       <h2>Bienvenido a BlockByte Unlocked</h2>
       <p>Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor. ¡Mejora tu experiencia en el juego con nuestras herramientas!</p>
       <p>Accede a diferentes categorías para obtener más información sobre cada producto y cómo implementarlo en tu servidor.</p>
+
+      <div class="grid">
+        <div class="card" onclick="showInfo('Bienvenido')">
+          <h3>Acerca de Nosotros</h3>
+          <p>Conoce más sobre los servicios y recursos que ofrecemos.</p>
+        </div>
+        <div class="card" onclick="showInfo('Servicios')">
+          <h3>Servicios</h3>
+          <p>Descubre todos los servicios que BlockByte tiene para tu servidor.</p>
+        </div>
+        <div class="card" onclick="showInfo('Tutoriales')">
+          <h3>Cómo Empezar</h3>
+          <p>Guías rápidas para integrar nuestros recursos a tu servidor Minecraft.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Sección de Plugins -->
@@ -178,46 +193,76 @@
           <h3>BeeMinions</h3>
           <p>Minions personalizables para tu economía.</p>
         </div>
-        <!-- Más tarjetas aquí -->
+        <div class="card" onclick="showPluginInfo('Boosters')">
+          <h3>Boosters</h3>
+          <p>Aumenta daño, XP o dinero con boosters configurables.</p>
+        </div>
+        <div class="card" onclick="showPluginInfo('CMI')">
+          <h3>CMI</h3>
+          <p>Plugin multifuncional para servidores avanzados.</p>
+        </div>
+        <div class="card" onclick="showPluginInfo('DeluxeCombat')">
+          <h3>DeluxeCombat</h3>
+          <p>Sistema de combate con sangrado, bloqueos y más.</p>
+        </div>
       </div>
     </section>
 
     <!-- Sección de Configuraciones -->
     <section id="configuraciones">
       <h2>Configuraciones Personalizadas</h2>
-      <p>Accede a configuraciones avanzadas para optimizar tu servidor de Minecraft. Desde configuraciones de plugins hasta ajustes de rendimiento y seguridad, aquí encuentras todo lo necesario para tu servidor.</p>
-      <ul>
-        <li><strong>Configuraciones de economía:</strong> Ajustes de precios y recompensas.</li>
-        <li><strong>Rendimiento:</strong> Configura el rendimiento de tu servidor para minimizar el uso de recursos.</li>
-        <li><strong>Seguridad:</strong> Protege tu servidor de hacks y exploits.</li>
-      </ul>
+      <div class="grid">
+        <div class="card" onclick="showInfo('Economía')">
+          <h3>Economía</h3>
+          <p>Configura el sistema económico de tu servidor.</p>
+        </div>
+        <div class="card" onclick="showInfo('Rendimiento')">
+          <h3>Rendimiento</h3>
+          <p>Optimiza el rendimiento de tu servidor Minecraft.</p>
+        </div>
+        <div class="card" onclick="showInfo('Seguridad')">
+          <h3>Seguridad</h3>
+          <p>Mejora la seguridad de tu servidor contra hacks y exploits.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Sección de Bots -->
     <section id="bots">
       <h2>Bots para Discord</h2>
-      <p>Mejora tu servidor de Discord con nuestros bots personalizados. Con comandos para economía, gestión de tickets, roles automáticos y mucho más. ¡Haz que tu comunidad se mantenga activa e interactiva!</p>
-      <ul>
-        <li><strong>Vortex Bot:</strong> Bot multifuncional para gestión de economía, tickets y roles.</li>
-        <li><strong>NameMC Bot:</strong> Bot para obtener información de usuarios de Minecraft.</li>
-        <li><strong>Lookisim MC:</strong> Bot para mostrar información de servidores y jugadores.</li>
-      </ul>
+      <div class="grid">
+        <div class="card" onclick="showInfo('VortexBot')">
+          <h3>Vortex Bot</h3>
+          <p>Bot multifuncional para gestión de economía, tickets y roles.</p>
+        </div>
+        <div class="card" onclick="showInfo('NameMCBot')">
+          <h3>NameMC Bot</h3>
+          <p>Bot para obtener información de usuarios de Minecraft.</p>
+        </div>
+        <div class="card" onclick="showInfo('LookisimMC')">
+          <h3>Lookisim MC</h3>
+          <p>Bot para mostrar información de servidores y jugadores.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Sección de Contacto -->
     <section id="contacto">
       <h2>Contacto</h2>
-      <p>Si tienes alguna pregunta o necesitas ayuda, no dudes en ponerte en contacto con nosotros. Estaremos encantados de asistirte.</p>
-      <p>Email: <a href="mailto:contacto@blockbyte.com">contacto@blockbyte.com</a></p>
-      <p>Redes Sociales:</p>
-      <ul>
-        <li><a href="https://twitter.com/blockbyte" target="_blank">Twitter</a></li>
-        <li><a href="https://discord.gg/blockbyte" target="_blank">Discord</a></li>
-      </ul>
+      <div class="grid">
+        <div class="card" onclick="showInfo('Soporte')">
+          <h3>Soporte</h3>
+          <p>Contacta con nuestro equipo de soporte para resolver cualquier problema.</p>
+        </div>
+        <div class="card" onclick="showInfo('RedesSociales')">
+          <h3>Redes Sociales</h3>
+          <p>Conéctate con nosotros a través de nuestras redes sociales.</p>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- Modal para mostrar la información del plugin -->
+  <!-- Modal para mostrar la información del plugin o sección -->
   <div id="pluginModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
@@ -255,15 +300,36 @@
       } else if (plugin === "BeeMinions") {
         title.textContent = "BeeMinions";
         description.textContent = "Minions personalizables que trabajan para tu economía en Minecraft, generando recursos automáticamente.";
-      }
-      // Puedes agregar más condiciones aquí para otros plugins.
+      } // Continúa con más plugins
+
+      modal.style.display = "block"; // Mostrar el modal
+    }
+
+    function showInfo(info) {
+      var modal = document.getElementById("pluginModal");
+      var title = document.getElementById("pluginTitle");
+      var description = document.getElementById("pluginDescription");
+
+      if (info === "Bienvenido") {
+        title.textContent = "Acerca de Nosotros";
+        description.textContent = "Conoce más sobre los servicios y recursos que ofrecemos en BlockByte.";
+      } else if (info === "Servicios") {
+        title.textContent = "Nuestros Servicios";
+        description.textContent = "Proporcionamos recursos premium como plugins, configuraciones y bots personalizados.";
+      } else if (info === "Tutoriales") {
+        title.textContent = "Tutoriales";
+        description.textContent = "Guías detalladas para integrar nuestros productos a tu servidor.";
+      } else if (info === "Economía") {
+        title.textContent = "Configuración de Economía";
+        description.textContent = "Configura el sistema económico de tu servidor con herramientas avanzadas.";
+      } // Continúa con más secciones
 
       modal.style.display = "block"; // Mostrar el modal
     }
 
     function closeModal() {
       var modal = document.getElementById("pluginModal");
-      modal.style.display = "none"; // Cerrar el modal
+      modal.style.display = "none"; // Ocultar el modal
     }
   </script>
 </body>

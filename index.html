@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BlockByte - Recursos Minecraft</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BlockByte Servicios</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background-color: #0b0b0b;
+      background-color: #0a0a0a;
       color: #eee;
     }
 
     header {
       background-color: #111;
       padding: 30px 0;
-      border-bottom: 2px solid #d60000;
       text-align: center;
+      border-bottom: 2px solid #d60000;
     }
 
     header h1 {
       color: #d60000;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       margin: 0;
     }
 
@@ -43,31 +43,31 @@
     }
 
     main {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
     h2 {
+      font-size: 2rem;
+      color: #fff;
       border-left: 4px solid #d60000;
-      padding-left: 10px;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
+      padding-left: 15px;
+      margin-bottom: 30px;
     }
 
-    .grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
     }
 
     .card {
       background-color: #1a1a1a;
-      border: 1px solid #333;
+      border: 1px solid #2b2b2b;
       border-radius: 10px;
       padding: 20px;
-      transition: 0.3s ease;
-      text-align: center;
+      transition: 0.3s;
       cursor: pointer;
     }
 
@@ -78,296 +78,70 @@
 
     .card h3 {
       color: #ff1a1a;
-      margin: 0 0 10px;
+      font-size: 1.3rem;
+      margin-top: 0;
     }
 
     .card p {
-      color: #aaa;
+      color: #bbb;
       font-size: 0.95rem;
     }
 
     footer {
       background-color: #111;
-      color: #666;
+      color: #777;
       text-align: center;
       padding: 20px;
       margin-top: 60px;
-      font-size: 0.85rem;
-    }
-
-    /* Estilos del Modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      overflow: auto;
-      padding-top: 60px;
-    }
-
-    .modal-content {
-      background-color: #333;
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #d60000;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    section {
-      padding: 40px 0;
-      display: none;
-    }
-
-    section.active {
-      display: block;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>BlockByte Unlocked</h1>
+    <h1>BlockByte Servicios</h1>
     <nav>
-      <a href="#" onclick="showSection('inicio')">Inicio</a>
-      <a href="#" onclick="showSection('plugins')">Plugins</a>
-      <a href="#" onclick="showSection('configuraciones')">Configuraciones</a>
-      <a href="#" onclick="showSection('bots')">Bots</a>
-      <a href="#" onclick="showSection('contacto')">Contacto</a>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Planes</a>
+      <a href="#">Contacto</a>
     </nav>
   </header>
 
   <main>
-    <!-- Sección de Inicio -->
-    <section id="inicio" class="active">
-      <h2>Bienvenido a BlockByte Unlocked</h2>
-      <p>Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor. ¡Mejora tu experiencia en el juego con nuestras herramientas!</p>
-      <p>Accede a diferentes categorías para obtener más información sobre cada producto y cómo implementarlo en tu servidor.</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Acerca de Nosotros</h3>
-          <p>Conoce más sobre los servicios y recursos que ofrecemos.</p>
-        </div>
-        <div class="card">
-          <h3>Servicios</h3>
-          <p>Descubre todos los servicios que BlockByte tiene para tu servidor.</p>
-        </div>
-        <div class="card">
-          <h3>Cómo Empezar</h3>
-          <p>Guías rápidas para integrar nuestros recursos a tu servidor Minecraft.</p>
-        </div>
+    <h2>Servicios Destacados</h2>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Desarrollo de Plugins</h3>
+        <p>Plugins personalizados hechos a medida para tu servidor, con rendimiento optimizado y soporte constante.</p>
       </div>
-    </section>
-
-    <!-- Sección de Plugins -->
-    <section id="plugins">
-      <h2>Plugins Premium</h2>
-      <div class="grid">
-        <div class="card" onclick="showPluginInfo('AxKoth')">
-          <h3>AxKoth</h3>
-          <p>Controla zonas PvP en eventos configurables.</p>
-        </div>
-        <div class="card" onclick="showPluginInfo('BattlePass')">
-          <h3>BattlePass</h3>
-          <p>Sistema completo de misiones y recompensas.</p>
-        </div>
-        <div class="card" onclick="showPluginInfo('BeeMinions')">
-          <h3>BeeMinions</h3>
-          <p>Minions personalizables para tu economía.</p>
-        </div>
-        <div class="card" onclick="showPluginInfo('Boosters')">
-          <h3>Boosters</h3>
-          <p>Aumenta daño, XP o dinero con boosters configurables.</p>
-        </div>
-        <div class="card" onclick="showPluginInfo('CMI')">
-          <h3>CMI</h3>
-          <p>Plugin multifuncional para servidores avanzados.</p>
-        </div>
-        <div class="card" onclick="showPluginInfo('DeluxeCombat')">
-          <h3>DeluxeCombat</h3>
-          <p>Sistema de combate con sangrado, bloqueos y más.</p>
-        </div>
+      <div class="card">
+        <h3>Configuración de Servidores</h3>
+        <p>Desde servidores Survival hasta Network. Te entregamos todo listo para jugar y expandir.</p>
       </div>
-    </section>
-
-    <!-- Sección de Configuraciones -->
-    <section id="configuraciones">
-      <h2>Configuraciones Personalizadas</h2>
-      <div class="grid">
-        <div class="card" onclick="showInfo('Economía')">
-          <h3>Economía</h3>
-          <p>Configura el sistema económico de tu servidor.</p>
-        </div>
-        <div class="card" onclick="showInfo('Rendimiento')">
-          <h3>Rendimiento</h3>
-          <p>Optimiza el rendimiento de tu servidor Minecraft.</p>
-        </div>
-        <div class="card" onclick="showInfo('Seguridad')">
-          <h3>Seguridad</h3>
-          <p>Mejora la seguridad de tu servidor contra hacks y exploits.</p>
-        </div>
+      <div class="card">
+        <h3>Optimización Avanzada</h3>
+        <p>Mejoramos el TPS y reducimos el lag al mínimo con configuraciones finas y testing real.</p>
       </div>
-    </section>
-
-    <!-- Sección de Bots -->
-    <section id="bots">
-      <h2>Bots para Discord</h2>
-      <div class="grid">
-        <div class="card" onclick="showInfo('VortexBot')">
-          <h3>Vortex Bot</h3>
-          <p>Bot multifuncional para gestión de economía, tickets y roles.</p>
-        </div>
-        <div class="card" onclick="showInfo('NameMCBot')">
-          <h3>NameMC Bot</h3>
-          <p>Bot para obtener información de usuarios de Minecraft.</p>
-        </div>
-        <div class="card" onclick="showInfo('LookisimMC')">
-          <h3>Lookisim MC</h3>
-          <p>Bot para mostrar información de servidores y jugadores.</p>
-        </div>
+      <div class="card">
+        <h3>Bots para Discord</h3>
+        <p>Creamos bots con comandos slash, economía, tickets, NameMC y mucho más. Totalmente personalizados.</p>
       </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Soporte</h3>
-          <p>Contacta con nuestro equipo de soporte para resolver cualquier problema.</p>
-        </div>
-        <div class="card">
-          <h3>Redes Sociales</h3>
-          <p>Conéctate con nosotros a través de nuestras redes sociales.</p>
-        </div>
+      <div class="card">
+        <h3>Seguridad Anticheat</h3>
+        <p>Instalación, configuración y pruebas de anticheats como Vulcan, Matrix y soluciones privadas.</p>
       </div>
-    </section>
+      <div class="card">
+        <h3>Soporte Técnico 24/7</h3>
+        <p>Atención personalizada para resolver errores, crasheos o problemas técnicos en cualquier momento.</p>
+      </div>
+    </div>
   </main>
 
-  <!-- Modal para mostrar la información del plugin o sección -->
-  <div id="pluginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="modalTitle">Título</h3>
-      <p id="modalDescription">Descripción del plugin o sección.</p>
-    </div>
-  </div>
+  <footer>
+    © 2025 BlockByte. Todos los derechos reservados.
+  </footer>
 
-  <script>
-    // Función para mostrar una sección al hacer clic en el menú de navegación
-    function showSection(sectionId) {
-      var sections = document.querySelectorAll('section');
-      sections.forEach(function(section) {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-    }
-
-    // Función para mostrar la información de un plugin
-    function showPluginInfo(plugin) {
-      var title, description;
-      
-      switch(plugin) {
-        case 'AxKoth':
-          title = "AxKoth";
-          description = "Controla zonas PvP en eventos configurables.";
-          break;
-        case 'BattlePass':
-          title = "BattlePass";
-          description = "Sistema completo de misiones y recompensas.";
-          break;
-        case 'BeeMinions':
-          title = "BeeMinions";
-          description = "Minions personalizables para tu economía.";
-          break;
-        case 'Boosters':
-          title = "Boosters";
-          description = "Aumenta daño, XP o dinero con boosters configurables.";
-          break;
-        case 'CMI':
-          title = "CMI";
-          description = "Plugin multifuncional para servidores avanzados.";
-          break;
-        case 'DeluxeCombat':
-          title = "DeluxeCombat";
-          description = "Sistema de combate con sangrado, bloqueos y más.";
-          break;
-        default:
-          title = "Información";
-          description = "Información no disponible.";
-      }
-
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalDescription").textContent = description;
-
-      var modal = document.getElementById("pluginModal");
-      modal.style.display = "block"; // Mostrar el modal
-    }
-
-    // Función para mostrar la información de secciones
-    function showInfo(info) {
-      var title, description;
-
-      switch(info) {
-        case 'Economía':
-          title = "Configuraciones de Economía";
-          description = "Configura el sistema económico de tu servidor para mejorar la experiencia de tus jugadores.";
-          break;
-        case 'Rendimiento':
-          title = "Optimización de Rendimiento";
-          description = "Mejora la performance de tu servidor para asegurar una experiencia fluida y sin lag.";
-          break;
-        case 'Seguridad':
-          title = "Seguridad del Servidor";
-          description = "Implementa medidas de seguridad para proteger tu servidor contra hacks y exploits.";
-          break;
-        case 'VortexBot':
-          title = "Vortex Bot";
-          description = "Bot multifuncional para gestionar economía, tickets y roles en tu servidor de Discord.";
-          break;
-        case 'NameMCBot':
-          title = "NameMC Bot";
-          description = "Bot para obtener información detallada sobre jugadores de Minecraft.";
-          break;
-        case 'LookisimMC':
-          title = "Lookisim MC";
-          description = "Bot para mostrar información de servidores y jugadores en Minecraft.";
-          break;
-        default:
-          title = "Información";
-          description = "Información no disponible.";
-      }
-
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalDescription").textContent = description;
-
-      var modal = document.getElementById("pluginModal");
-      modal.style.display = "block"; // Mostrar el modal
-    }
-
-    // Cerrar modal
-    function closeModal() {
-      var modal = document.getElementById("pluginModal");
-      modal.style.display = "none"; // Ocultar el modal
-    }
-  </script>
 </body>
 </html>
+

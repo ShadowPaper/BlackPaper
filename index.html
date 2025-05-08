@@ -95,21 +95,7 @@
       font-size: 0.85rem;
     }
 
-    .subcategoria {
-      margin-top: 10px;
-      color: #ddd;
-    }
-
-    .subcategoria a {
-      color: #ff1a1a;
-      text-decoration: none;
-      margin: 0 5px;
-    }
-
-    .subcategoria a:hover {
-      color: #d60000;
-    }
-
+    /* Estilos del Modal */
     .modal {
       display: none;
       position: fixed;
@@ -118,13 +104,14 @@
       top: 0;
       width: 100%;
       height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
       overflow: auto;
-      background-color: rgba(0,0,0,0.4);
+      padding-top: 60px;
     }
 
     .modal-content {
-      background-color: #222;
-      margin: 10% auto;
+      background-color: #333;
+      margin: 5% auto;
       padding: 20px;
       border-radius: 10px;
       width: 80%;
@@ -140,9 +127,18 @@
 
     .close:hover,
     .close:focus {
-      color: #000;
+      color: #d60000;
       text-decoration: none;
       cursor: pointer;
+    }
+
+    section {
+      padding: 40px 0;
+      display: none;
+    }
+
+    section.active {
+      display: block;
     }
   </style>
 </head>
@@ -160,95 +156,73 @@
 
   <main>
     <!-- Sección de Plugins -->
-    <section id="plugins" class="active">
+    <section id="plugins">
       <h2>Plugins Premium</h2>
       <div class="grid">
         <div class="card" onclick="showPluginInfo('AxKoth')">
           <h3>AxKoth</h3>
           <p>Controla zonas PvP en eventos configurables.</p>
-          <a href="#" onclick="showSection('AxKoth')">Ver más</a>
-          <div class="subcategoria">
-            <a href="#" onclick="showSection('AxKoth/configuracion')">Configuración</a> |
-            <a href="#" onclick="showSection('AxKoth/comandos')">Comandos</a>
-          </div>
         </div>
         <div class="card" onclick="showPluginInfo('BattlePass')">
           <h3>BattlePass</h3>
           <p>Sistema completo de misiones y recompensas.</p>
-          <a href="#" onclick="showSection('BattlePass')">Ver más</a>
-          <div class="subcategoria">
-            <a href="#" onclick="showSection('BattlePass/configuracion')">Configuración</a> |
-            <a href="#" onclick="showSection('BattlePass/comandos')">Comandos</a>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>Si tienes alguna duda o necesitas soporte, no dudes en ponerte en contacto con nosotros a través de las siguientes opciones:</p>
-      <div class="grid">
-        <div class="card">
-          <h3>Email</h3>
-          <p>Envíanos un correo a soporte@blockbyte.com</p>
+        <div class="card" onclick="showPluginInfo('BeeMinions')">
+          <h3>BeeMinions</h3>
+          <p>Minions personalizables para tu economía.</p>
         </div>
-        <div class="card">
-          <h3>Redes Sociales</h3>
-          <p>Síguenos en nuestras redes para estar al tanto de las novedades.</p>
-          <a href="https://twitter.com/blockbyte" target="_blank">Twitter</a>
-        </div>
+        <!-- Más tarjetas aquí -->
       </div>
     </section>
   </main>
 
-  <!-- Modal -->
+  <!-- Modal para mostrar la información del plugin -->
   <div id="pluginModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <h2 id="modalTitle">Título</h2>
-      <p id="modalDescription">Descripción del plugin</p>
+      <h2 id="pluginTitle">Plugin</h2>
+      <p id="pluginDescription">Descripción del plugin</p>
     </div>
   </div>
 
   <footer>
-    <p>&copy; 2025 BlockByte. Todos los derechos reservados.</p>
+    &copy; 2025 BlockByte Unlocked. Todos los derechos reservados.
   </footer>
 
   <script>
     function showSection(sectionId) {
-      const sections = document.querySelectorAll("section");
-      sections.forEach(section => section.classList.remove("active"));
-      document.getElementById(sectionId).classList.add("active");
+      var sections = document.querySelectorAll('section');
+      sections.forEach(function(section) {
+        section.classList.remove('active');
+      });
+
+      var activeSection = document.getElementById(sectionId);
+      activeSection.classList.add('active');
     }
 
-    function showPluginInfo(pluginName) {
-      var title, description;
-
-      switch(pluginName) {
-        case 'AxKoth':
-          title = "AxKoth";
-          description = "Controla zonas PvP en eventos configurables.";
-          break;
-        case 'BattlePass':
-          title = "BattlePass";
-          description = "Sistema completo de misiones y recompensas.";
-          break;
-        default:
-          title = "Información no disponible";
-          description = "No hay información disponible para este plugin.";
-      }
-
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalDescription").textContent = description;
-
+    function showPluginInfo(plugin) {
       var modal = document.getElementById("pluginModal");
-      modal.style.display = "block";
+      var title = document.getElementById("pluginTitle");
+      var description = document.getElementById("pluginDescription");
+
+      if (plugin === "AxKoth") {
+        title.textContent = "AxKoth";
+        description.textContent = "Controla zonas PvP en eventos configurables, con opciones avanzadas para personalizar eventos y recompensas.";
+      } else if (plugin === "BattlePass") {
+        title.textContent = "BattlePass";
+        description.textContent = "Sistema completo de misiones y recompensas, perfecto para agregar un pase de batalla a tu servidor Minecraft.";
+      } else if (plugin === "BeeMinions") {
+        title.textContent = "BeeMinions";
+        description.textContent = "Minions personalizables que trabajan para tu economía en Minecraft, generando recursos automáticamente.";
+      }
+      // Puedes agregar más condiciones aquí para otros plugins.
+
+      modal.style.display = "block"; // Mostrar el modal
     }
 
     function closeModal() {
       var modal = document.getElementById("pluginModal");
-      modal.style.display = "none";
+      modal.style.display = "none"; // Cerrar el modal
     }
   </script>
 </body>

@@ -141,24 +141,40 @@
       display: block;
     }
 
-    .testimonial {
+    .login-form {
       background-color: #222;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      margin: 0 auto;
     }
 
-    .testimonial p {
-      color: #ccc;
-      font-size: 1rem;
-      line-height: 1.5;
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #555;
+      background-color: #333;
+      color: #fff;
     }
 
-    .testimonial h4 {
-      color: #ff1a1a;
-      margin-top: 10px;
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #d60000;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
+    .login-form button:hover {
+      background-color: #a50000;
+    }
   </style>
 </head>
 <body>
@@ -171,12 +187,24 @@
       <a href="#" onclick="showSection('proyectos')">Últimos Proyectos</a>
       <a href="#" onclick="showSection('testimonios')">Testimonios</a>
       <a href="#" onclick="showSection('contacto')">Contacto</a>
+      <a href="#" onclick="showLogin()">Iniciar Sesión</a>
     </nav>
   </header>
 
   <main>
+    <!-- Sección de Login -->
+    <section id="login" class="active">
+      <h2>Iniciar Sesión</h2>
+      <div class="login-form">
+        <input type="text" id="username" placeholder="Nombre de usuario" />
+        <input type="password" id="password" placeholder="Contraseña" />
+        <button onclick="login()">Iniciar Sesión</button>
+      </div>
+      <p id="login-error" style="color: red; text-align: center; display: none;">Usuario o contraseña incorrectos.</p>
+    </section>
+
     <!-- Sección de Inicio -->
-    <section id="inicio" class="active">
+    <section id="inicio">
       <h2>Bienvenido a BlockByte</h2>
       <p>Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor.</p>
 
@@ -293,61 +321,27 @@
     </section>
   </main>
 
-  <!-- Modal para mostrar información -->
-  <div id="infoModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h3 id="modalTitle">Título</h3>
-      <p id="modalDescription">Descripción del contenido.</p>
-    </div>
-  </div>
-
   <script>
-    // Mostrar una sección al hacer clic en el menú
-    function showSection(sectionId) {
-      var sections = document.querySelectorAll('section');
-      sections.forEach(function(section) {
-        section.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
+    // Mostrar la sección de login
+    function showLogin() {
+      document.getElementById("login").style.display = 'block';
+      document.getElementById("inicio").style.display = 'none';
     }
 
-    // Mostrar el contenido del modal
-    function showInfo(info) {
-      var title, description;
-      
-      switch(info) {
-        case 'Acerca':
-          title = "Acerca de Nosotros";
-          description = "Conoce más sobre nuestros servicios y lo que podemos hacer por ti.";
-          break;
-        case 'Servicios':
-          title = "Nuestros Servicios";
-          description = "Desde el desarrollo de plugins hasta la optimización de servidores, ofrecemos soluciones integrales.";
-          break;
-        case 'Cómo Empezar':
-          title = "Guía de Inicio";
-          description = "Sigue nuestras guías paso a paso para integrar nuestros recursos a tu servidor.";
-          break;
-        default:
-          title = "Información";
-          description = "Información no disponible.";
+    // Validar el login
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      // Compara las credenciales (esto es solo de ejemplo)
+      if (username === "admin" && password === "password123") {
+        alert("Inicio de sesión exitoso");
+        document.getElementById("login").style.display = 'none';
+        document.getElementById("inicio").style.display = 'block';
+      } else {
+        document.getElementById("login-error").style.display = 'block';
       }
-
-      document.getElementById("modalTitle").textContent = title;
-      document.getElementById("modalDescription").textContent = description;
-
-      var modal = document.getElementById("infoModal");
-      modal.style.display = "block";
-    }
-
-    // Cerrar el modal
-    function closeModal() {
-      var modal = document.getElementById("infoModal");
-      modal.style.display = "none";
     }
   </script>
 </body>
 </html>
-
-

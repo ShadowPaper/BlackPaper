@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockByte - Tu centro de recursos Minecraft</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid red;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: red;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: red;
+      color: #fff;
+    }
+    main {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      border-color: red;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: red;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BlockByte</h1>
+    <p>Tu centro de recursos Minecraft: Plugins, Bots, Configuraciones y más</p>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Plugins</a>
+      <a href="#">Bots</a>
+      <a href="#">Configuraciones</a>
+      <a href="#">Otros</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Recursos destacados</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>VortexBoosters</h3>
+        <p>Plugin de boosters personalizable para tu servidor.</p>
+      </div>
+      <div class="card">
+        <h3>LookisimBot</h3>
+        <p>Bot de Discord con NameMC, economía y sistema de tickets.</p>
+      </div>
+      <div class="card">
+        <h3>GalaxyBox Config</h3>
+        <p>Configuración para modalidad Box PvP temática espacial.</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    &copy; 2025 BlockByte. Desarrollado por tu comunidad.
+  </footer>
+</body>
+</html>

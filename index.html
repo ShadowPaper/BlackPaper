@@ -97,8 +97,14 @@
     }
 
     section {
+      display: none;
       padding: 40px 0;
     }
+
+    section.active {
+      display: block;
+    }
+
   </style>
 </head>
 <body>
@@ -116,7 +122,7 @@
 
   <main>
     <!-- Sección de Inicio -->
-    <section id="inicio">
+    <section id="inicio" class="active">
       <h2>Bienvenido a BlockByte</h2>
       <p>Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor.</p>
 

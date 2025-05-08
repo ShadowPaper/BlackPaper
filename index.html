@@ -94,26 +94,37 @@
       margin-top: 60px;
       font-size: 0.85rem;
     }
+
+    section {
+      padding: 40px 0;
+      display: none; /* Ocultar todas las secciones por defecto */
+    }
+
+    section.active {
+      display: block; /* Mostrar la sección activa */
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>BlockByte Unlocked</h1>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#plugins">Plugins</a>
-      <a href="#configuraciones">Configuraciones</a>
-      <a href="#bots">Bots</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#" onclick="showSection('inicio')">Inicio</a>
+      <a href="#" onclick="showSection('plugins')">Plugins</a>
+      <a href="#" onclick="showSection('configuraciones')">Configuraciones</a>
+      <a href="#" onclick="showSection('bots')">Bots</a>
+      <a href="#" onclick="showSection('contacto')">Contacto</a>
     </nav>
   </header>
 
   <main>
-    <section id="inicio">
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="active">
       <h2>Bienvenido a BlockByte</h2>
       <p>Tu sitio para recursos de Minecraft.</p>
     </section>
 
+    <!-- Sección de Plugins -->
     <section id="plugins">
       <h2>Plugins Premium</h2>
       <div class="grid">
@@ -172,16 +183,19 @@
       </div>
     </section>
 
+    <!-- Sección de Configuraciones -->
     <section id="configuraciones">
       <h2>Configuraciones</h2>
       <p>Próximamente...</p>
     </section>
 
+    <!-- Sección de Bots -->
     <section id="bots">
       <h2>Bots de Discord</h2>
       <p>Próximamente...</p>
     </section>
 
+    <!-- Sección de Contacto -->
     <section id="contacto">
       <h2>Contacto</h2>
       <p>Email: contacto@blockbyte.com</p>
@@ -191,6 +205,19 @@
   <footer>
     &copy; 2025 BlockByte Unlocked. Todos los derechos reservados.
   </footer>
+
+  <script>
+    function showSection(sectionId) {
+      // Ocultar todas las secciones
+      var sections = document.querySelectorAll('section');
+      sections.forEach(function(section) {
+        section.classList.remove('active');
+      });
+
+      // Mostrar la sección seleccionada
+      var activeSection = document.getElementById(sectionId);
+      activeSection.classList.add('active');
+    }
+  </script>
 </body>
 </html>
-

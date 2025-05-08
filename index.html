@@ -35,6 +35,7 @@
       font-weight: bold;
       padding: 10px;
       border-radius: 5px;
+      cursor: pointer;
     }
     nav a:hover {
       background-color: red;
@@ -72,6 +73,12 @@
       margin-top: 40px;
       font-size: 0.9rem;
     }
+    .section {
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -79,32 +86,101 @@
     <h1>BlockByte</h1>
     <p>Tu centro de recursos Minecraft: Plugins, Bots, Configuraciones y más</p>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Plugins</a>
-      <a href="#">Bots</a>
-      <a href="#">Configuraciones</a>
-      <a href="#">Otros</a>
+      <a onclick="showSection('inicio')">Inicio</a>
+      <a onclick="showSection('plugins')">Plugins</a>
+      <a onclick="showSection('bots')">Bots</a>
+      <a onclick="showSection('configs')">Configuraciones</a>
+      <a onclick="showSection('otros')">Otros</a>
     </nav>
   </header>
+
   <main>
-    <h2>Recursos destacados</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>VortexBoosters</h3>
-        <p>Plugin de boosters personalizable para tu servidor.</p>
+    <section id="inicio" class="section active">
+      <h2>Recursos destacados</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>VortexBoosters</h3>
+          <p>Plugin de boosters personalizable para tu servidor.</p>
+        </div>
+        <div class="card">
+          <h3>LookisimBot</h3>
+          <p>Bot de Discord con NameMC, economía y sistema de tickets.</p>
+        </div>
+        <div class="card">
+          <h3>GalaxyBox Config</h3>
+          <p>Configuración para modalidad Box PvP temática espacial.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>LookisimBot</h3>
-        <p>Bot de Discord con NameMC, economía y sistema de tickets.</p>
+    </section>
+
+    <section id="plugins" class="section">
+      <h2>Plugins</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AdvancedCombat</h3>
+          <p>Plugin para PvP con sistema de daño personalizado.</p>
+        </div>
+        <div class="card">
+          <h3>VortexBoosters</h3>
+          <p>Plugin con boosters de experiencia, dinero y daño.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>GalaxyBox Config</h3>
-        <p>Configuración para modalidad Box PvP temática espacial.</p>
+    </section>
+
+    <section id="bots" class="section">
+      <h2>Bots</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>LookisimBot</h3>
+          <p>Incluye NameMC, economía, sistema de tickets y comandos slash.</p>
+        </div>
+        <div class="card">
+          <h3>GalaxyBot</h3>
+          <p>Bot con sistema de niveles, bienvenida y verificación automática.</p>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section id="configs" class="section">
+      <h2>Configuraciones</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>GalaxyBox</h3>
+          <p>Configuración de BoxPvP con sistema de clanes, minas y economía.</p>
+        </div>
+        <div class="card">
+          <h3>SurvivalPro</h3>
+          <p>Configuración avanzada para servidores survival modernos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="otros" class="section">
+      <h2>Otros recursos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Texturas PvP</h3>
+          <p>Paquetes de texturas ligeros y optimizados para PvP.</p>
+        </div>
+        <div class="card">
+          <h3>Plantilla Discord</h3>
+          <p>Servidor base con roles, canales y bots configurados.</p>
+        </div>
+      </div>
+    </section>
   </main>
+
   <footer>
     &copy; 2025 BlockByte. Desarrollado por tu comunidad.
   </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>

@@ -162,15 +162,15 @@
       <p>Accede a diferentes categorías para obtener más información sobre cada producto y cómo implementarlo en tu servidor.</p>
 
       <div class="grid">
-        <div class="card" onclick="showInfo('Bienvenido')">
+        <div class="card">
           <h3>Acerca de Nosotros</h3>
           <p>Conoce más sobre los servicios y recursos que ofrecemos.</p>
         </div>
-        <div class="card" onclick="showInfo('Servicios')">
+        <div class="card">
           <h3>Servicios</h3>
           <p>Descubre todos los servicios que BlockByte tiene para tu servidor.</p>
         </div>
-        <div class="card" onclick="showInfo('Tutoriales')">
+        <div class="card">
           <h3>Cómo Empezar</h3>
           <p>Guías rápidas para integrar nuestros recursos a tu servidor Minecraft.</p>
         </div>
@@ -250,11 +250,11 @@
     <section id="contacto">
       <h2>Contacto</h2>
       <div class="grid">
-        <div class="card" onclick="showInfo('Soporte')">
+        <div class="card">
           <h3>Soporte</h3>
           <p>Contacta con nuestro equipo de soporte para resolver cualquier problema.</p>
         </div>
-        <div class="card" onclick="showInfo('RedesSociales')">
+        <div class="card">
           <h3>Redes Sociales</h3>
           <p>Conéctate con nosotros a través de nuestras redes sociales.</p>
         </div>
@@ -327,18 +327,6 @@
       var title, description;
 
       switch(info) {
-        case 'Bienvenido':
-          title = "Bienvenido a BlockByte";
-          description = "Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor.";
-          break;
-        case 'Servicios':
-          title = "Nuestros Servicios";
-          description = "Ofrecemos una amplia variedad de servicios como plugins, configuraciones y bots para mejorar tu servidor de Minecraft.";
-          break;
-        case 'Tutoriales':
-          title = "Cómo Empezar";
-          description = "Te ofrecemos guías rápidas y detalladas para integrar nuestros recursos a tu servidor Minecraft.";
-          break;
         case 'Economía':
           title = "Configuraciones de Economía";
           description = "Configura el sistema económico de tu servidor para mejorar la experiencia de tus jugadores.";
@@ -362,14 +350,6 @@
         case 'LookisimMC':
           title = "Lookisim MC";
           description = "Bot para mostrar información de servidores y jugadores en Minecraft.";
-          break;
-        case 'Soporte':
-          title = "Soporte";
-          description = "Contacta con nuestro equipo de soporte para resolver cualquier problema que tengas.";
-          break;
-        case 'RedesSociales':
-          title = "Redes Sociales";
-          description = "Síguenos en nuestras redes sociales para estar al tanto de las últimas noticias.";
           break;
         default:
           title = "Información";

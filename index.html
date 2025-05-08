@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlockByte Servicios</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BlockByte - Servicios Minecraft</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Rubik', sans-serif;
-      background-color: #0a0a0a;
+      background-color: #0b0b0b;
       color: #eee;
     }
 
     header {
       background-color: #111;
       padding: 30px 0;
-      text-align: center;
       border-bottom: 2px solid #d60000;
+      text-align: center;
     }
 
     header h1 {
       color: #d60000;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin: 0;
     }
 
@@ -43,32 +43,33 @@
     }
 
     main {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
     h2 {
-      font-size: 2rem;
-      color: #fff;
       border-left: 4px solid #d60000;
-      padding-left: 15px;
-      margin-bottom: 30px;
+      padding-left: 10px;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
     }
 
-    .services-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
     }
 
     .card {
       background-color: #1a1a1a;
-      border: 1px solid #2b2b2b;
+      border: 1px solid #333;
       border-radius: 10px;
       padding: 20px;
-      transition: 0.3s;
+      transition: 0.3s ease;
+      text-align: center;
       cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
 
     .card:hover {
@@ -78,69 +79,272 @@
 
     .card h3 {
       color: #ff1a1a;
-      font-size: 1.3rem;
-      margin-top: 0;
+      margin: 0 0 10px;
     }
 
     .card p {
-      color: #bbb;
+      color: #aaa;
       font-size: 0.95rem;
     }
 
     footer {
       background-color: #111;
-      color: #777;
+      color: #666;
       text-align: center;
       padding: 20px;
       margin-top: 60px;
+      font-size: 0.85rem;
     }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      overflow: auto;
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      background-color: #333;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #d60000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 40px 0;
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .testimonial {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial p {
+      color: #ccc;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .testimonial h4 {
+      color: #ff1a1a;
+      margin-top: 10px;
+    }
+
   </style>
 </head>
 <body>
-
   <header>
-    <h1>BlockByte Servicios</h1>
+    <h1>BlockByte Unlocked</h1>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Servicios</a>
-      <a href="#">Planes</a>
-      <a href="#">Contacto</a>
+      <a href="#" onclick="showSection('inicio')">Inicio</a>
+      <a href="#" onclick="showSection('servicios')">Servicios</a>
+      <a href="#" onclick="showSection('planes')">Planes</a>
+      <a href="#" onclick="showSection('proyectos')">Últimos Proyectos</a>
+      <a href="#" onclick="showSection('testimonios')">Testimonios</a>
+      <a href="#" onclick="showSection('contacto')">Contacto</a>
     </nav>
   </header>
 
   <main>
-    <h2>Servicios Destacados</h2>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Desarrollo de Plugins</h3>
-        <p>Plugins personalizados hechos a medida para tu servidor, con rendimiento optimizado y soporte constante.</p>
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="active">
+      <h2>Bienvenido a BlockByte</h2>
+      <p>Explora una colección de recursos premium para Minecraft, desde plugins hasta configuraciones y bots personalizados para tu servidor.</p>
+
+      <div class="grid">
+        <div class="card" onclick="showInfo('Acerca')">
+          <h3>Acerca de Nosotros</h3>
+          <p>Conoce más sobre nuestro servicio.</p>
+        </div>
+        <div class="card" onclick="showInfo('Servicios')">
+          <h3>Servicios</h3>
+          <p>Descubre lo que ofrecemos para tu servidor.</p>
+        </div>
+        <div class="card" onclick="showInfo('Cómo Empezar')">
+          <h3>Cómo Empezar</h3>
+          <p>Guías fáciles para integrar nuestros recursos.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Configuración de Servidores</h3>
-        <p>Desde servidores Survival hasta Network. Te entregamos todo listo para jugar y expandir.</p>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios">
+      <h2>Servicios Destacados</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Desarrollo de Plugins</h3>
+          <p>Desarrollamos plugins personalizados para tu servidor Minecraft.</p>
+        </div>
+        <div class="card">
+          <h3>Configuración de Servidores</h3>
+          <p>Configura tu servidor para obtener el máximo rendimiento.</p>
+        </div>
+        <div class="card">
+          <h3>Optimización de Servidores</h3>
+          <p>Mejora la estabilidad y rendimiento de tu servidor Minecraft.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Optimización Avanzada</h3>
-        <p>Mejoramos el TPS y reducimos el lag al mínimo con configuraciones finas y testing real.</p>
+    </section>
+
+    <!-- Sección de Planes -->
+    <section id="planes">
+      <h2>Planes y Precios</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Plan Básico</h3>
+          <p>Acceso a plugins básicos y configuraciones generales.</p>
+        </div>
+        <div class="card">
+          <h3>Plan Avanzado</h3>
+          <p>Todo lo del plan básico, más soporte premium y plugins personalizados.</p>
+        </div>
+        <div class="card">
+          <h3>Plan Pro</h3>
+          <p>Acceso completo a todos nuestros servicios y soporte 24/7.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Bots para Discord</h3>
-        <p>Creamos bots con comandos slash, economía, tickets, NameMC y mucho más. Totalmente personalizados.</p>
+    </section>
+
+    <!-- Sección de Últimos Proyectos -->
+    <section id="proyectos">
+      <h2>Últimos Proyectos</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Servidor PvP</h3>
+          <p>Configuración de un servidor PvP con plugins personalizados y mejoras de rendimiento.</p>
+        </div>
+        <div class="card">
+          <h3>Servidor RPG</h3>
+          <p>Desarrollo de plugins exclusivos para un servidor de rol.</p>
+        </div>
+        <div class="card">
+          <h3>Servidor SkyBlock</h3>
+          <p>Implementación de un servidor SkyBlock con sistemas de economía avanzados.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Seguridad Anticheat</h3>
-        <p>Instalación, configuración y pruebas de anticheats como Vulcan, Matrix y soluciones privadas.</p>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios">
+      <h2>Testimonios de Clientes</h2>
+      <div class="grid">
+        <div class="testimonial">
+          <p>"El servicio es excepcional, nuestro servidor nunca estuvo tan optimizado. ¡Totalmente recomendados!"</p>
+          <h4>Juan Pérez, Admin Server PvP</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Gracias a BlockByte, nuestra comunidad creció rápidamente. Los plugins son únicos y de alta calidad."</p>
+          <h4>Ana García, Owner Server RPG</h4>
+        </div>
+        <div class="testimonial">
+          <p>"El soporte 24/7 y las configuraciones personalizadas hicieron que mi servidor se viera mucho mejor. ¡Excelente trabajo!"</p>
+          <h4>Ricardo Martínez, Admin Server SkyBlock</h4>
+        </div>
       </div>
-      <div class="card">
-        <h3>Soporte Técnico 24/7</h3>
-        <p>Atención personalizada para resolver errores, crasheos o problemas técnicos en cualquier momento.</p>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Email</h3>
+          <p>contacto@blockbyte.com</p>
+        </div>
+        <div class="card">
+          <h3>Redes Sociales</h3>
+          <p>Síguenos en nuestras redes sociales para más actualizaciones.</p>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <footer>
-    © 2025 BlockByte. Todos los derechos reservados.
-  </footer>
+  <!-- Modal para mostrar información -->
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalDescription">Descripción del contenido.</p>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar una sección al hacer clic en el menú
+    function showSection(sectionId) {
+      var sections = document.querySelectorAll('section');
+      sections.forEach(function(section) {
+        section.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Mostrar el contenido del modal
+    function showInfo(info) {
+      var title, description;
+      
+      switch(info) {
+        case 'Acerca':
+          title = "Acerca de Nosotros";
+          description = "Conoce más sobre nuestros servicios y lo que podemos hacer por ti.";
+          break;
+        case 'Servicios':
+          title = "Nuestros Servicios";
+          description = "Desde el desarrollo de plugins hasta la optimización de servidores, ofrecemos soluciones integrales.";
+          break;
+        case 'Cómo Empezar':
+          title = "Guía de Inicio";
+          description = "Sigue nuestras guías paso a paso para integrar nuestros recursos a tu servidor.";
+          break;
+        default:
+          title = "Información";
+          description = "Información no disponible.";
+      }
+
+      document.getElementById("modalTitle").textContent = title;
+      document.getElementById("modalDescription").textContent = description;
+
+      var modal = document.getElementById("infoModal");
+      modal.style.display = "block";
+    }
+
+    // Cerrar el modal
+    function closeModal() {
+      var modal = document.getElementById("infoModal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
+
 
 </body>
 </html>
